@@ -1,0 +1,14 @@
+{
+    "TARGET": "CSS",
+    "DEFAULT-EMITTER": {
+        "emitter": "IDENTITY"
+    },
+    "RULES": [{"(a-z)": {"emitter": "IDENTITY"}},
+	      {"(A-Z)": {"emitter": "IDENTITY"}},
+	      {"(0-9)": {"emitter": "IDENTITY"}},
+	      {"(U+0000-U+00ff)": {"emitter": "CSS-ESCAPE"}}
+	     ],
+    
+
+    "CSS-ESCAPE": ["\\", { "emitter": "HEX" }, " "]
+}

@@ -273,6 +273,7 @@ class AstFormatter(NodeVisitor):
     def __init__(self):
         # self._out = deque()
         self._format_strings = dict()
+        self.escape_func = lambda c: c if c != '\\' else '\\\\'
 
     @property
     def out(self):
@@ -305,6 +306,7 @@ class AstFormatter(NodeVisitor):
         return format_string
 
     def visit_Codepoint(self, node):
+        # format_string = self.escape_func(self.getFstring(node))
         format_string = self.getFstring(node)
         return format_string.format(codepoint=ord(node.codepoint))
 
@@ -322,7 +324,10 @@ class AstFormatter(NodeVisitor):
 
     def visit_ConstantEmitter(self, node):
         format_string = self.getFstring(node)
-        return format_string.format(node.string)
+        buff = []
+        for c in node.string:
+            buff.append(self.escape_func(c))
+        return format_string.format(''.join(buff))
 
     def visit_EmitterList(self, node):
         s = []
@@ -331,7 +336,7 @@ class AstFormatter(NodeVisitor):
         return ''.join(s)
 
     def __setattr__(self, name, value):
-        if name == '_out' or name == '_format_strings':
+        if name == '_out' or name == '_format_strings' or name == 'escape_func':
             super(NodeVisitor, self).__setattr__(name, value)
         else:
             self._format_strings[name] = value

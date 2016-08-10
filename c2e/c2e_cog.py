@@ -12,7 +12,6 @@ from codec2ast import AstFormatter
 class C2Ecog(Cog):
     ''' Cog wrapper that capture output '''
 
-
     def __init__(self, encoder=None, codec=None, codec_template=None, class_name=None, suffix=None):
         super().__init__()
 

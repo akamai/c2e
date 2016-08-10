@@ -1,14 +1,14 @@
 {
+    "TARGET": "HTML",
     "DEFAULT-EMITTER": {
-        "emitter": "DEC-ENTITY"
+	"emitter" : "IDENTITY"
     },
     "RULES": [ { "&": "&amp;" },
                { "<": "&lt;"  },
                { ">": "&gt;"  },
                { "\"": "&quot;"},
 	       { "'": "&#x27;" },
-               { "/": "&#x2F;" },
-               { "(U+000020-U+00007E)": { "emitter": "IDENTITY" }} ],
-    "TARGET": "HTML",
+               { "/": "&#x2F;" }],
+
     "DEC-ENTITY": ["&#", { "emitter": "DEC" }, ";" ]
 }
