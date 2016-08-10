@@ -1,0 +1,46 @@
+/* [[[C2E
+   import cog, c2e
+
+   codec = c2e.codec
+
+   method_signature = 'public static String for{target}(String s) throws IOException {{'.format(target=codec.target)
+   cog.outl(method_signature)
+   ]]] */
+/* [[[END]]] */
+    StringBuilder sb = new StringBuilder();
+
+    InputStream is = new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8));
+    InputStreamReader isr = new InputStreamReader(is);
+    BufferedReader ur = new BufferedReader(isr);
+    
+    int candidate;
+    while ((candidate = ur.read()) != -1) {
+	/* [[[C2E
+	   import cog, c2e
+
+	   fmt = c2e.fmt
+	   codec = c2e.codec
+	   class_name = c2e.class_name
+
+	   fmt.If = 'if ({condition}) {{ {iftrue} }} \nelse {{ {iffalse} }}'
+	   fmt.eq = '({operand1} == {operand2})'
+	   fmt.land = '({operand1} && {operand2})'
+	   fmt.lor = '({operand1} || {operand2})'
+	   fmt.lt = '({operand1} < {operand2})'
+	   fmt.lte = '({operand1} <= {operand2})'
+	   fmt.gt = '({operand1} > {operand2})'
+	   fmt.gte = '({operand1} >= {operand2})'
+	   fmt.Candidate = 'candidate'
+	   fmt.Codepoint = '0x{codepoint:06X}'
+	   fmt.true = 'true'
+	   fmt.false = 'false'
+	   fmt.Nop = "sb.append(" + class_name + ".NOP(candidate));"
+	   fmt.Builtin = "sb.append(" + class_name + ".{builtin}(candidate));"
+	   fmt.ConstantEmitter = 'sb.append("{}");'
+
+	   cog.out(fmt.format(codec.ast))
+	   ]]] */
+	// [[[END]]]
+    }
+    return sb.toString();
+}
