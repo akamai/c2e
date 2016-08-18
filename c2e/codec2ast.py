@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Copyright (c) 2016, Akamai Technologies
+# Author: Daniel Garcia
 
 from abc import ABCMeta, abstractmethod
 import unicodedata
