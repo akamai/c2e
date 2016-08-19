@@ -6,8 +6,8 @@
     "RULES": [{"(a-z)": {"emitter": "IDENTITY"}},
 	      {"(A-Z)": {"emitter": "IDENTITY"}},
 	      {"(0-9)": {"emitter": "IDENTITY"}},
-	      {"(U+0000-U+00ff)": {"emitter": "DEC-ENTITY"}}
+	      {"(U+0000-U+00ff)": {"emitter": "HEX-ENTITY"}}
 	     ],
 
-    "DEC-ENTITY": ["&#x", { "emitter": "HEX" }, ";" ]
+    "HEX-ENTITY": ["&#x", { "emitter": "HEX" }, ";" ]
 }
