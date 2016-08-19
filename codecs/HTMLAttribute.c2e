@@ -8,7 +8,6 @@
 	      {"(0-9)": {"emitter": "IDENTITY"}},
 	      {"(U+0000-U+00ff)": {"emitter": "DEC-ENTITY"}}
 	     ],
-    
 
     "DEC-ENTITY": ["&#x", { "emitter": "HEX" }, ";" ]
 }
