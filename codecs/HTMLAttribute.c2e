@@ -10,5 +10,5 @@
 	     ],
     
 
-    "DEC-ENTITY": ["&#", { "emitter": "DEC" }, ";" ]
+    "DEC-ENTITY": ["&#x", { "emitter": "HEX" }, ";" ]
 }
